@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'LaSmash | Smash Burgers',
     description: 'Smash burgers hechas para quitarte el hambre de verdad.',
-    images: [{ url: '/assets/images/app_logo.png', width: 1200, height: 630 }],
+    images: ['/assets/images/app_logo.png'],
     type: 'website',
   },
   icons: {

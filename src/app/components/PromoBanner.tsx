@@ -22,7 +22,7 @@ export default function PromoBanner() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 overflow-hidden">
+    <section ref={sectionRef} className="on-charcoal relative overflow-hidden bg-background py-24 text-foreground sm:py-32">
       {/* Background */}
       <div className="absolute inset-0">
         <AppImage
@@ -41,7 +41,7 @@ export default function PromoBanner() {
           <div className="section-fade stagger-1">
             <h2 className="font-display text-section-title uppercase text-foreground mb-8">
               El secreto está en la costra.<br />
-              <span className="text-primary">El sabor está en cada mordida.</span>
+              El sabor está en cada mordida.
             </h2>
           </div>
           <div className="section-fade stagger-2">

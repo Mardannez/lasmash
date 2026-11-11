@@ -13,17 +13,14 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-muted border-t border-border">
+    <footer className="on-charcoal bg-background text-foreground border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         {/* Arc Browser Split Layout */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
           {/* Left: Logo + Tagline */}
           <div className="flex flex-col gap-4 max-w-xs">
-            <div className="flex items-center gap-2">
-              <AppLogo size={32} />
-              <span className="font-display text-2xl tracking-wider text-foreground">
-                LA<span className="text-primary">SMASH</span>
-              </span>
+            <div className="self-start rounded-md bg-white px-2 py-1">
+              <AppLogo />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Smash burgers hechas para quitarte el hambre de verdad.

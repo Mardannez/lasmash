@@ -31,7 +31,7 @@ export default function FeaturedBurgers() {
         {/* Header */}
         <div className="section-fade stagger-1 mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <h2 className="font-display text-section-title uppercase text-foreground">
-            Las más <span className="text-primary">buscadas</span>
+            Las más <span className="text-brand">buscadas</span>
           </h2>
         </div>
 
@@ -54,14 +54,14 @@ export default function FeaturedBurgers() {
                 {/* Badge */}
                 {item.badge && (
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="badge-pill bg-primary text-primary-foreground">
+                    <span className="badge-pill bg-brand-ink text-white">
                       {item.badge}
                     </span>
                   </div>
                 )}
                 {/* Price overlay */}
                 <div className="absolute bottom-3 right-3 z-10">
-                  <span className="bg-background/90 text-primary font-display text-lg px-3 py-1 rounded-full tracking-wide">
+                  <span className="bg-background text-foreground font-display text-lg px-3 py-1 rounded-full tracking-wide">
                     {item.price === null ? 'Precio por consultar' : `L ${item.price}`}
                   </span>
                 </div>

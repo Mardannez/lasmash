@@ -3,7 +3,7 @@ import AppImage from '@/components/ui/AppImage';
 
 export default function AboutHero() {
   return (
-    <section className="relative pt-16 min-h-[60vh] flex items-end overflow-hidden">
+    <section className="on-charcoal relative pt-16 min-h-[60vh] flex items-end overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0">
         <AppImage

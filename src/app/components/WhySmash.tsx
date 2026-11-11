@@ -8,12 +8,13 @@ const highlights = [
 
 export default function WhySmash() {
   return (
-    <section className="py-16 sm:py-20 bg-muted" aria-labelledby="smash-technique">
+    <section className="on-charcoal bg-background py-16 text-foreground sm:py-20" aria-labelledby="smash-technique">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 items-center gap-8 lg:gap-12">
           <div>
+            <div className="mb-5 h-1 w-10 bg-brand" aria-hidden="true" />
             <h2 id="smash-technique" className="font-display text-section-title uppercase text-foreground mb-5">
-              ¿Qué hace diferente a <span className="text-primary">una Smash?</span>
+              ¿Qué hace diferente a una Smash?
             </h2>
             <p className="text-lg font-bold text-foreground mb-4">
               No es solo una hamburguesa. Es una técnica.
@@ -41,7 +42,7 @@ export default function WhySmash() {
         <ul className="mt-8 grid sm:grid-cols-3 gap-3">
           {highlights.map((highlight) => (
             <li key={highlight} className="flex items-center gap-3 p-4 rounded-xl border border-border bg-background">
-              <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-primary" />
+              <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-brand" />
               <span className="font-bold text-sm text-foreground">{highlight}</span>
             </li>
           ))}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import AppLogo from '@/components/ui/AppLogo';
 
 const navLinks = [
@@ -12,14 +13,8 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -34,20 +29,11 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg shadow-black/20'
-            : 'bg-transparent'
-        }`}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2" onClick={closeMenu}>
-            <AppLogo size={32} />
-            <span className="font-display text-2xl tracking-wider text-foreground">
-              LA<span className="text-primary">SMASH</span>
-            </span>
+          <Link href="/" className="shrink-0" onClick={closeMenu}>
+            <AppLogo priority />
           </Link>
 
           {/* Desktop Nav */}
@@ -56,7 +42,8 @@ export default function Header() {
               <Link
                 key={link?.href}
                 href={link?.href}
-                className="nav-link-underline text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase"
+                aria-current={pathname === link.href ? 'page' : undefined}
+                className="nav-link-underline text-sm font-semibold text-foreground tracking-wide uppercase"
               >
                 {link?.label}
               </Link>
@@ -82,9 +69,12 @@ export default function Header() {
               Pedir
             </Link>
             <button
+              type="button"
               onClick={() => setMenuOpen((v) => !v)}
-              className="flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none"
+              className="flex flex-col justify-center items-center w-10 h-10 gap-1.5"
               aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
               <span
                 className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
@@ -109,20 +99,21 @@ export default function Header() {
       {/* Mobile Drawer Overlay */}
       <div
         className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
-          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          menuOpen ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none'
         }`}
       >
         <div
           className="absolute inset-0 bg-background/80 backdrop-blur-lg"
           onClick={closeMenu}
         />
-        <nav className="absolute top-16 left-0 right-0 bg-background border-b border-border flex flex-col">
+        <nav id="mobile-navigation" className="absolute top-16 left-0 right-0 bg-background border-b border-border flex flex-col">
           {navLinks?.map((link, i) => (
             <Link
               key={link?.href}
               href={link?.href}
               onClick={closeMenu}
-              className={`px-6 py-5 font-display text-xl tracking-widest uppercase text-foreground border-b border-border hover:text-primary transition-colors ${
+              aria-current={pathname === link.href ? 'page' : undefined}
+              className={`px-6 py-5 font-display text-xl tracking-widest uppercase text-foreground border-b border-border hover:text-brand-ink aria-[current=page]:text-brand-ink transition-colors ${
                 i === 0 ? 'border-t border-border' : ''
               }`}
             >

@@ -1,35 +1,28 @@
-import React from 'react';
 import AppImage from '@/components/ui/AppImage';
 
 export default function MenuHero() {
   return (
-    <section className="relative pt-16 pb-0 overflow-hidden">
-      <div className="relative h-52 sm:h-64 flex items-end">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <AppImage
-            src="/assets/images/smash/hero.webp"
-            alt=""
-            fill
-            priority
-            className="object-cover object-[center_60%]"
-            sizes="100vw" />
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-10 w-full">
-          <span className="text-primary font-bold text-xs tracking-[0.3em] uppercase block mb-2">
-            LaSmash
-          </span>
-          <h1 className="font-display text-hero-lg uppercase text-foreground leading-none">
+    <section className="border-b border-border bg-muted pt-16">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-8 sm:px-6 sm:py-10">
+        <div>
+          <h1 className="font-display text-hero-lg uppercase leading-none text-foreground">
             Menú
           </h1>
-          <p className="text-muted-foreground mt-2 text-sm font-medium tracking-wide">
+          <p className="mt-3 text-sm font-medium text-muted-foreground">
             Elige tu Smash de una, dos o tres carnes.
           </p>
         </div>
+        <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-2xl bg-background sm:h-40 sm:w-56">
+          <AppImage
+            src="/assets/images/smash/tripleta.webp"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 639px) 112px, 224px"
+          />
+        </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

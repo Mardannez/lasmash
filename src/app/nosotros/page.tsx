@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nosotros — LaSmash',
     description: 'Nacimos para hacer Smash. Conoce nuestra historia.',
-    images: [{ url: '/assets/images/app_logo.png', width: 1200, height: 630 }],
+    images: ['/assets/images/app_logo.png'],
   },
 };
 

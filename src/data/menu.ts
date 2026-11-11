@@ -30,7 +30,7 @@ const burgers = {
     name: 'La Fuego Smash',
     description: 'Una carne smash dorada en plancha, queso cheddar, jalapeños, cebolla morada y una cremosa salsa chipotle que aporta el picante perfecto.',
     specialty: 'Un toque picante que realza el sabor de la carne.',
-    price: null,
+    price: 160,
     patties: 1,
     image: '/assets/images/smash/fuego.webp',
     alt: 'Smash de una carne con cheddar, jalapeños y cebolla morada',
@@ -64,7 +64,7 @@ const burgers = {
     name: 'La BBQ Smash',
     description: 'Dos carnes smash selladas a alta temperatura, queso cheddar, aros de cebolla crujientes, tocino y una generosa capa de salsa BBQ ahumada.',
     specialty: 'Ese contraste entre lo dulce, lo ahumado y lo crujiente.',
-    price: null,
+    price: 205,
     patties: 2,
     image: '/assets/images/smash/bbq.webp',
     alt: 'Smash de dos carnes con cheddar, tocino, aros de cebolla y salsa BBQ',
@@ -75,7 +75,7 @@ const burgers = {
     name: 'La Golden Onion',
     description: 'Dos carnes smash aplastadas sobre una capa de cebolla finamente cortada, doradas juntas sobre la plancha, con doble queso y mayonesa especial.',
     specialty: 'Cebolla caramelizada directamente con la carne, creando un sabor intenso.',
-    price: null,
+    price: 185,
     patties: 2,
     image: '/assets/images/smash/golden-onion.webp',
     alt: 'Smash de dos carnes con cebolla dorada en la costra y queso fundido',
@@ -86,7 +86,7 @@ const burgers = {
     name: 'La Tripleta Smash',
     description: 'Tres carnes smash con sus bordes bien dorados, triple queso americano, pepinillos, cebolla fresca y abundante salsa de la casa.',
     specialty: 'Tres capas de carne crujiente con queso fundido entre cada una.',
-    price: 215,
+    price: 225,
     patties: 3,
     image: '/assets/images/smash/tripleta.webp',
     alt: 'Smash de tres carnes con queso americano, pepinillos y cebolla',
@@ -97,7 +97,7 @@ const burgers = {
     name: 'La Super Smash',
     description: 'Nuestra creación más imponente. Tres carnes smash, triple queso, tocino crujiente, cebolla caramelizada, salsa BBQ y nuestra irresistible salsa especial.',
     specialty: 'Nuestra combinación más completa para los verdaderos amantes de las hamburguesas.',
-    price: 175,
+    price: 235,
     patties: 3,
     image: '/assets/images/smash/super.webp',
     alt: 'Smash de tres carnes con queso, tocino crujiente y salsa BBQ',
@@ -111,30 +111,28 @@ export const menuItems: MenuItem[] = [
 {
   id: 'combo-clasico',
   name: 'Combo Clásico',
-  description: 'Cualquier burger + papas clásicas + refresco mediano.',
-  price: 55,
+  description: 'Hamburguesa + papas clásicas + refresco mediano.',
+  price: 195,
   image: "https://images.unsplash.com/photo-1491765735347-a536c17e597f",
   alt: 'Burger combo with fries and soda on dark table, atmospheric lighting',
-  category: 'combos',
-  badge: '+ PRECIO DE BURGER'
+  category: 'combos'
 },
 {
   id: 'combo-grande',
   name: 'Combo Grande',
-  description: 'Cualquier burger + papas grandes + bebida grande.',
-  price: 75,
+  description: 'Hamburguesa + papas grandes + bebida grande.',
+  price: 225,
   image: "https://images.unsplash.com/photo-1654009783164-f592e9351421",
   alt: 'Large burger combo meal with oversized fries and drink, dark dramatic lighting',
-  category: 'combos',
-  badge: '+ PRECIO DE BURGER'
+  category: 'combos'
 },
 {
   id: 'combo-smash-doble',
   name: 'Combo Super Smash',
   description: 'La Super Smash + papas con queso + refresco mediano.',
-  price: 260,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_15a956780-1779257336658.png",
-  alt: 'Complete double smash burger combo meal with cheese fries, dark moody setting',
+  price: 295,
+  image: burgers.super.image,
+  alt: burgers.super.alt,
   category: 'combos',
   badge: 'COMBO ESPECIAL',
   bestSeller: true
@@ -154,8 +152,8 @@ export const menuItems: MenuItem[] = [
   name: 'Papas con Queso',
   description: 'Papas fritas con salsa de queso derretido.',
   price: 75,
-  image: "https://images.unsplash.com/photo-1574008714961-4b091c96e770",
-  alt: 'Cheese fries with melted cheese sauce, dramatic dark background',
+  image: '/assets/images/menu/papas-con-queso.webp',
+  alt: 'Papas fritas doradas con salsa de queso derretido',
   category: 'acompañantes',
   badge: 'POPULAR'
 },
@@ -164,8 +162,8 @@ export const menuItems: MenuItem[] = [
   name: 'Bacon Cheese Fries',
   description: 'Papas fritas, salsa de queso, bacon crujiente y cebollín.',
   price: 105,
-  image: "https://images.unsplash.com/photo-1725148032168-769dafd713aa",
-  alt: 'Loaded bacon cheese fries with crispy bacon and scallions, dark atmospheric lighting',
+  image: '/assets/images/menu/bacon-cheese-fries.webp',
+  alt: 'Papas fritas cubiertas de queso fundido, tocino crujiente y cebollín',
   category: 'acompañantes',
   badge: 'CARGADAS',
   bestSeller: true
@@ -176,8 +174,8 @@ export const menuItems: MenuItem[] = [
   name: 'Extra Bacon',
   description: 'Tiras de bacon crocante adicional.',
   price: 30,
-  image: "https://images.unsplash.com/photo-1667591862226-cf95245e75d7",
-  alt: 'Crispy bacon strips close-up, dark moody food photography',
+  image: '/assets/images/menu/extra-bacon.webp',
+  alt: 'Tres tiras de tocino crujiente',
   category: 'extras'
 },
 {
@@ -185,8 +183,8 @@ export const menuItems: MenuItem[] = [
   name: 'Extra Queso',
   description: 'Loncha adicional de queso americano.',
   price: 20,
-  image: "https://images.unsplash.com/photo-1657258170775-af8f0e62b879",
-  alt: 'Melted American cheese slice, warm studio lighting on dark background',
+  image: '/assets/images/menu/extra-queso.webp',
+  alt: 'Rebanadas cuadradas de queso americano',
   category: 'extras'
 },
 // ── Bebidas ──
@@ -195,17 +193,17 @@ export const menuItems: MenuItem[] = [
   name: 'Refresco',
   description: 'Coca-Cola, Pepsi, Sprite o agua con gas. Tamaño mediano.',
   price: 35,
-  image: "https://images.unsplash.com/photo-1568386284397-fe2c4858b3d0",
-  alt: 'Cold soda drinks with ice in glass, dark moody bar lighting',
+  image: '/assets/images/menu/refresco.webp',
+  alt: 'Vaso de refresco de cola con hielo y burbujas',
   category: 'bebidas'
 },
 {
   id: 'agua',
   name: 'Agua',
-  description: 'Agua purificada fría. 600ml.',
+  description: 'Agua purificada Aguazul, servida fría.',
   price: 25,
-  image: "https://images.unsplash.com/photo-1702468006877-4fc034a24f7c",
-  alt: 'Cold water bottle with condensation, clean dark background',
+  image: '/assets/images/menu/aguazul.webp',
+  alt: 'Botella de agua purificada Aguazul con etiqueta azul',
   category: 'bebidas'
 }];
 

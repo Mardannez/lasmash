@@ -42,18 +42,20 @@ function MenuCard({ item }: { item: MenuItem }) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {badge && (
-          <span className="absolute top-3 left-3 z-10 badge-pill bg-primary text-primary-foreground">
+          <span className={`absolute top-3 left-3 z-10 badge-pill ${
+            item.id === 'bacon-super' ? 'bg-brand-ink text-white' : 'bg-background text-foreground'
+          }`}>
             {badge}
           </span>
         )}
-        <span className="absolute bottom-3 right-3 z-10 bg-background/90 text-primary font-display text-base px-3 py-1 rounded-full tracking-wide">
-          {item.price === null ? 'Precio por consultar' : `L ${item.price}`}
+        <span className="absolute bottom-3 right-3 z-10 bg-background text-foreground font-display text-base px-3 py-1 rounded-full tracking-wide">
+          {item.price === null ? 'Precio por consultar' : `L. ${item.price}`}
         </span>
       </div>
 
       <div className="p-5 flex flex-col flex-1">
         {burger && (
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">
+          <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">
             {burger.patties === 1 ? '1 carne' : `${burger.patties} carnes`}
           </p>
         )}
@@ -93,9 +95,9 @@ export default function MenuClient() {
       <div
         role="group"
         aria-label="Filtrar el menú"
-        className="sticky top-16 z-30 bg-background/95 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 border-b border-border mb-10"
+        className="sticky top-16 z-30 bg-background/95 backdrop-blur-md py-1.5 -mx-4 px-4 sm:-mx-6 sm:px-6 border-b border-border mb-8"
       >
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-x-1">
           {filters.map(({ id, label }) => (
             <button
               key={id}
@@ -103,7 +105,7 @@ export default function MenuClient() {
               aria-pressed={activeFilter === id}
               aria-controls="menu-products"
               onClick={() => setActiveFilter(id)}
-              className={`category-tab ${activeFilter === id ? 'active' : ''}`}
+              className="category-tab"
             >
               {label}
             </button>

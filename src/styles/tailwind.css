@@ -3,41 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --background: #11100E;
-  --foreground: #FFF8ED;
-  --primary: #F5B800;
-  --primary-foreground: #11100E;
-  --secondary: #A96832;
-  --secondary-foreground: #FFF8ED;
-  --accent: #F4E8D5;
-  --accent-foreground: #11100E;
-  --muted: #1E1C19;
-  --muted-foreground: #A89880;
-  --card: #1A1816;
-  --card-foreground: #FFF8ED;
-  --border: #2A2620;
-  --input: #2A2620;
-  --ring: #F5B800;
+  --white: 255 255 255;
+  --charcoal: 36 32 30;
+  --brand: 242 24 24;
+  --brand-ink: 187 18 18;
+  --background: var(--white);
+  --foreground: var(--charcoal);
+  --primary: var(--charcoal);
+  --primary-foreground: var(--white);
+  --secondary: 241 236 233;
+  --secondary-foreground: var(--charcoal);
+  --accent: 249 239 237;
+  --accent-foreground: var(--charcoal);
+  --muted: 248 245 243;
+  --muted-foreground: 103 91 85;
+  --card: var(--white);
+  --card-foreground: var(--charcoal);
+  --border: 229 222 218;
+  --input: var(--border);
+  --ring: var(--brand);
   --radius: 0.5rem;
   --font-sans: 'Manrope', sans-serif;
   --font-display: 'Anton', sans-serif;
-  --success: #4ade80;
-  --success-foreground: #11100E;
-  --warning: #F5B800;
-  --warning-foreground: #11100E;
-  --destructive: #ef4444;
-  --destructive-foreground: #FFF8ED;
+  --success: 22 110 63;
+  --success-foreground: var(--white);
+  --warning: var(--brand-ink);
+  --warning-foreground: var(--white);
+  --destructive: var(--brand-ink);
+  --destructive-foreground: var(--white);
+}
+
+.on-charcoal {
+  --background: var(--charcoal);
+  --foreground: var(--white);
+  --primary: var(--white);
+  --primary-foreground: var(--charcoal);
+  --muted-foreground: 220 212 207;
+  --border: 87 76 70;
 }
 
 @layer base {
   * {
     box-sizing: border-box;
-    border-color: var(--border);
+    border-color: rgb(var(--border));
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
@@ -74,11 +87,6 @@
     letter-spacing: 0.02em;
   }
 
-  .blob-yellow {
-    background: radial-gradient(ellipse at center, rgba(245, 184, 0, 0.15) 0%, transparent 70%);
-    filter: blur(40px);
-  }
-
   .card-hover {
     transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -86,7 +94,7 @@
 
   .card-hover:hover {
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 28px rgb(var(--charcoal) / 0.12);
   }
 
   .image-zoom img {
@@ -142,11 +150,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary);
+    background-color: rgb(var(--brand));
     transition: width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .nav-link-underline:hover::after {
+  .nav-link-underline:hover::after,
+  .nav-link-underline[aria-current="page"]::after {
     width: 100%;
   }
 
@@ -154,25 +163,19 @@
     white-space: nowrap;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 0.5rem 1.25rem;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--muted-foreground);
-    transition: all 0.2s ease;
+    padding: 0.7rem clamp(0.55rem, 2vw, 1.15rem);
+    border-bottom: 2px solid transparent;
+    color: rgb(var(--muted-foreground));
+    transition: border-color 0.2s ease, color 0.2s ease;
     cursor: pointer;
   }
 
-  .category-tab:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-  }
-
-  .category-tab.active {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    color: var(--primary-foreground);
+  .category-tab:hover,
+  .category-tab[aria-pressed="true"] {
+    border-color: rgb(var(--brand));
+    color: rgb(var(--foreground));
   }
 
   .whatsapp-float {
@@ -182,17 +185,18 @@
     z-index: 50;
     width: 3.5rem;
     height: 3.5rem;
-    background-color: #25D366;
+    background-color: rgb(var(--charcoal));
+    color: rgb(var(--white));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 20px rgb(var(--charcoal) / 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .whatsapp-float:hover {
     transform: scale(1.08);
-    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 6px 28px rgb(var(--charcoal) / 0.3);
   }
 }
